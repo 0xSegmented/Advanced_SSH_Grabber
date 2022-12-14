@@ -1,19 +1,20 @@
 from sys import platform
 import os
 
-x = input("Want to start the script? Y / N\n")
+start_requirement = input("Want to start the script? Y / N\n")
+if start_requirement.lower() != "y": exit()
 
 def filecheck():
     os.system('ls sshfiles > 1.log')
     file_path= '1.log'
     if os.stat(file_path).st_size == 0:
         print("empty")
-        return(0)
+        return false
     else:
         print("full")
-        return(1)
+        return true
 
-if platform == "linux" and x.lower() == "y":
+if platform == "linux":
     print("You are using the Advanced SSH Grabber by XATT.")
     print(f"OS detected: {platform}.")
     os.system('echo "" > SSHlocations.txt')
@@ -38,7 +39,7 @@ if platform == "linux" and x.lower() == "y":
     os.system('rm -rf SSHlocations.txt; rm -rf 1.log')
     print("Done, transfer the 'sshfiles' folder to your system.")
 
-elif platform == "darwin" and x.lower() == "y":
+elif platform == "darwin":
     print("You are using the Advanced SSH Grabber by XATT.")
     print(f"OS detected: {platform}.")
     os.system('echo "" > SSHlocations.txt')
@@ -50,7 +51,7 @@ elif platform == "darwin" and x.lower() == "y":
             line = line.strip()
             print(line)
             os.system(f'cp -r {line} sshfiles')
-    if filecheck() == 0:
+    if not filecheck():
         print("No files detected\n")
         q = input("Do you want to run SSH-gen? Y / N\n")
         if q.lower() == "y":
@@ -62,7 +63,7 @@ elif platform == "darwin" and x.lower() == "y":
     print("Cleaing up.")
     os.system('rm -rf SSHlocations.txt; rm -rf 1.log')
     print("Done, transfer the 'sshfiles' folder to your system.")
-elif platform == "win32" and x.lower() == "y":
+elif platform == "win32":
     print("You are using the Advanced SSH Grabber by XATT.")
     print(f"OS detected: {platform}.")
     print("This platform is not supported yet.")
