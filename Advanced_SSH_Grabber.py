@@ -26,7 +26,7 @@ if platform == "linux":
             line = line.strip()
             print(line)
             os.system(f'cp -r {line} sshfiles')
-    if filecheck() == 0:
+    if not filecheck():
         print("No files detected\n")
         q = input("Do you want to run SSH-gen? Y / N\n")
         if q.lower() == "y":
