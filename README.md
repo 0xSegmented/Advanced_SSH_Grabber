@@ -6,7 +6,7 @@ To use this tool, you'd need some kind of RCE.
 <br />Host this file in a web-server and grab it from your host with your target.
 <br />The tool will grab anything SSH related on the machine.
 <br /><br />Run this program by:<br />
-python3 sshgrabber.py
+<p><b>python3 sshgrabber.py</b></p>
 <br />
 <br />And follow along the steps!
 <h4>NOTE: It can take LONG!</h4>
